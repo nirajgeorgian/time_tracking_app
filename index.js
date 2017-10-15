@@ -18,7 +18,11 @@ app.use((req, res, next) => {
   res.setHeader('Expires', '0');
   next();
 });
-
+// log file directory
+// app.use(function(req, res, next) {
+//   console.log(DATA_FILE);
+//   next();
+// })
 app.get('/api/timers', (req, res, next) => {
   fs.readFile(DATA_FILE, (err, data) => {
     const timers = JSON.parse(data)
